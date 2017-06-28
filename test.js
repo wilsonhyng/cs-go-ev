@@ -87,8 +87,25 @@ getPrice(data.prices[0]).then(function(results) {
   // })
   // console.log('RESULTS', Object.keys(results.skinData));
   var weapons =  Object.keys(results.skinData);
-  for (var i = 0; i < Object.keys(results.skinData).length; i++) {
-    console.log(weapons[i], results.skinData[weapons[i]]['Field-Tested']['median_price']);
+  var gunPrice = 0;
 
+  for (var i = 0; i < Object.keys(results.skinData).length; i++) {
+    // console.log(weapons[i], results.skinData[weapons[i]]['Field-Tested']['median_price']);
+    // console.log(2 * (results.skinData[weapons[i]]['Field-Tested']['median_price']).slice(1));
+    
+    gunPrice += parseFloat((results.skinData[weapons[i]]['Field-Tested']['median_price']).slice(1));
   }
+  console.log(gunPrice);
 })
+
+
+//   for (var i = 0; i < Object.keys(results.skinData).length; i++) {
+//     console.log(weapons[i], results.skinData[weapons[i]]['Field-Tested']['median_price']);
+//     // for (var j = 0; j < wears.length; j++) {
+//     //   gunPrice += wearChance[j] * parseFloat((results.skinData[weapons[i][wears[j]['median_price']]]).slice(1));
+//     //   console.log(gunPrice);
+
+//     // }
+//   }
+//   // console.log(gunPrice);
+// })
