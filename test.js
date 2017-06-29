@@ -17,7 +17,7 @@ var allNames = require('./matchingnames');
 // });
 
 // If you want to disable strictNameMode.
-csgomarket.strictNameMode = false;
+// csgomarket.strictNameMode = false;
 
 // Notice the missing '-' in AK 47. With strictNameMode off it will internally swap to 'AK-47'.
 // csgomarket.getSinglePrice('AK 47', 'Vulcan', 'Field Tested', true, function (err, data) {
@@ -82,17 +82,11 @@ var getPrice = function(theData) {
 
 getPrice(data.prices[0]).then(function(results) {
   // Do something with returned results here.
-  // (results.skinData).forEach(function(data) {
-  //   console.log(data);
-  // })
-  // console.log('RESULTS', Object.keys(results.skinData));
+
   var weapons =  Object.keys(results.skinData);
   var gunPrice = 0;
 
-  for (var i = 0; i < Object.keys(results.skinData).length; i++) {
-    // console.log(weapons[i], results.skinData[weapons[i]]['Field-Tested']['median_price']);
-    // console.log(2 * (results.skinData[weapons[i]]['Field-Tested']['median_price']).slice(1));
-    
+  for (var i = 0; i < Object.keys(results.skinData).length; i++) {    
     gunPrice += parseFloat((results.skinData[weapons[i]]['Field-Tested']['median_price']).slice(1));
   }
   console.log(gunPrice);
